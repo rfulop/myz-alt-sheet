@@ -1,0 +1,12 @@
+// _utilities.scss
+@for $i from 1 through 100 {
+  .flex-basis-#{$i} {
+    flex-basis: $i * 1%;
+  }
+}
+
+@for $i from 1 through 30 {
+  .font-size-#{$i} {
+    font-size: $i * 0.1rem; // Multiplie chaque itération par 0.1rem pour créer une échelle
+  }
+}

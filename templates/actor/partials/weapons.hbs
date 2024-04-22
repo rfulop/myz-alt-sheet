@@ -1,0 +1,43 @@
+<div class="section weapons {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title flex-basis-40">{{localize 'MYZ.WEAPONS'}}</div>
+        <div class="section-justify-center flex-basis-15">{{localize 'MYZ.BONUS'}}</div>
+        <div class="section-justify-center flex-basis-15">{{localize 'MYZ.DAMAGE'}}</div>
+        <div class="section-justify-center flex-basis-15">{{localize 'MYZ.RANGE'}}</div>
+        <div class="section-control flex-basis-15">
+            <a class="item-create" data-type="weapon">+</a>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each weapons as |weapon key|}}
+            <li class="editable-item section-row-img section-table-line flexrow box-item physical" data-physical="1" data-item-id="{{weapon._id}}">
+                <div class="flexrow section-center section-gap-items flex-basis-40">
+                    <img src="{{weapon.img}}" class="section-img" alt="{{weapon.name}}">
+                    <div class="rollable roll-weapon {{#if (isBroken weapon)}}broken{{/if}}" data-item-id="{{weapon._id}}">
+                        {{weapon.name}}
+                    </div>
+                </div>
+                <div class="flexrow section-center section-justify-center flex-basis-15">
+                    <input type="number" class="owned-item-value section-value" value="{{weapon.system.bonus.value}}"
+                           data-linked-value="system.bonus.value" data-item-id="{{weapon._id}}">
+                    <label class="section-label-bonus">/{{weapon.system.bonus.max}}</label>
+                </div>
+                <div class="flexrow section-center section-justify-center flex-basis-15">{{weapon.system.damage}}</div>
+                <div class="flexrow section-center section-justify-center flex-basis-15">{{localize (toUpperCase (concat "MYZ." weapon.system.range))}}</div>
+                <div class="section-control section-center flex-basis-15">
+                    {{#if weapon.system.stashed}}
+                        <a class="item-control item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                            <i class="fa-regular fa-box"></i>
+                        </a>
+                    {{/if}}
+                    <a class="item-control item-edit" title="{{localize 'MYZ.EDIT'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+        {{#each (range weapons.length 3)}}
+            <li class="section-row flexrow light-bg"></li>
+        {{/each}}
+    </ol>
+</div>

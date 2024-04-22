@@ -1,0 +1,54 @@
+{
+  "MYZ-ALT": {
+    "APPEARANCE": {
+      "BODY": "Body",
+      "CLOTHING": "Clothing",
+      "FACE": "Face",
+      "LABEL": "Appearance"
+    },
+    "CRITICAL": {
+      "LABEL": "Critical Injuries"
+    },
+    "DEN": {
+      "LABEL": "My den",
+      "DESCRIPTION": "Description",
+      "STASHED": "Gear Stashed"
+    },
+    "NOTES": "Notes",
+    "PEOPLE": {
+      "LABEL": "People I've met",
+      "NOTES": "Notes",
+      "ROLE": "Role"
+    },
+    "RELATIONSHIPS": {
+      "BUDDY": "Buddy",
+      "I-HATE": "I Hate",
+      "I-PROTECT": "I Need to Protect",
+      "LABEL": "Relationships",
+      "MY-DREAM": "My Big Dream",
+      "PC": {
+        "LABEL": "PC",
+        "NAME": "Name of the PC",
+        "NEW": "New PC",
+        "RELATION": "Relation with the PC",
+        "RELATION-PLACEHOLDER": "Describe your relation with the PC"
+      },
+      "NPC": {
+        "LABEL": "NPC",
+        "NAME": "Name of the NPC",
+        "NEW": "New NPC",
+        "RELATION": "Relation with the NPC",
+        "RELATION-PLACEHOLDER": "Describe your relation with the NPC"
+      }
+    },
+    "ROT_POINTS": "Rot points",
+    "TRAUMA": {
+      "AGILITY": "Épuisement",
+      "EMPATHY": "Doute",
+      "STRENGTH": "Dégâts",
+      "WITS": "Confusion"
+    },
+    "XP_POINTS": "Experience points"
+  }
+}
+

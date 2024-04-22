@@ -1,0 +1,32 @@
+<div class="section appearance {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title">{{localize 'MYZ-ALT.APPEARANCE.LABEL'}}</div>
+    </div>
+    <div class="section-row flexrow light-bg">
+        <div class="section-column flexcol flex-basis-10">
+            <strong>{{localize 'MYZ-ALT.APPEARANCE.FACE'}}:</strong>
+        </div>
+        <div class="section-column flexcol flex-basis-90">
+            {{editor system.appearance.face target="system.appearance.face" button=true editable=editable
+                     engine="prosemirror" collaborate=false}}
+        </div>
+    </div>
+    <div class="section-row flexrow light-bg">
+        <div class="section-column flexcol flex-basis-10">
+            <strong>{{localize 'MYZ-ALT.APPEARANCE.BODY'}}:</strong>
+        </div>
+        <div class="section-column flexcol flex-basis-90">
+            {{editor system.appearance.body target="system.appearance.body" button=true editable=editable
+                     engine="prosemirror" collaborate=false}}
+        </div>
+    </div>
+    <div class="section-row flexrow light-bg">
+        <div class="section-column flexcol flex-basis-10">
+            <strong>{{localize 'MYZ-ALT.APPEARANCE.CLOTHING'}}:</strong>
+        </div>
+        <div class="section-column flexcol flex-basis-90">
+            {{editor system.appearance.clothing target="system.appearance.clothing" button=true editable=editable
+                     engine="prosemirror" collaborate=false}}
+        </div>
+    </div>
+</div>

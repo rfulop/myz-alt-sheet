@@ -1,0 +1,48 @@
+<div class="section armors {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title flex-basis-50">{{localize 'MYZ-ALT.DEN.LABEL'}}</div>
+    </div>
+    <ol class="item-list">
+        <li class="section-row flexrow light-bg">
+            <div class="section-column flexcol flex-basis-10">
+                <p><strong>{{localize 'MYZ-ALT.DEN.DESCRIPTION'}}:</strong></p>
+            </div>
+            <div class="section-column flexcol flex-basis-90">
+                {{editor system.den.description target="system.den.description" button=true editable=editable
+                         engine="prosemirror" collaborate=false}}
+            </div>
+        </li>
+        <li class="section-row flexrow light-bg">
+            <div class="font-size-8">
+                <strong>{{localize 'MYZ-ALT.DEN.STASHED'}}:</strong></div>
+        </li>
+        {{#each stashedGear as |gear key|}}
+            <li class="editable-item section-row-img flexrow light-bg box-item" data-physical="1" data-item-id="{{gear._id}}">
+                <img class="section-img" src="{{gear.img}}"  alt="{{gear.name}}"/>
+                <input type="number" class="owned-item-value section-value" value="{{gear.system.quantity}}"
+                       data-item-id="{{gear._id}}" data-linked-value="system.quantity">
+                <div class="viewable section-name" data-item-id="{{gear._id}}">
+                    {{gear.name}}
+                </div>
+                <div class="section-control flex0">
+                    <span>
+                        {{#if gear.system.weight}}
+                            {{math gear.system.quantity "*" gear.system.weight}}
+                        {{else}}
+                            0
+                        {{/if}}
+                        <i class="fas fa-weight-hanging"></i>
+                        {{#if gear.system.stashed}}
+                            <a class="item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                            <i class="fa-regular fa-box"></i>
+                        </a>
+                        {{/if}}
+                        <a class="chatable" data-item-id="{{gear._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                        <i class="fas fa-comment"></i>
+                    </a>
+                    </span>
+                </div>
+            </li>
+        {{/each}}
+    </ol>
+</div>

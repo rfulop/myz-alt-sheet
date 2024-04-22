@@ -1,0 +1,101 @@
+<form class="{{cssClass}} flexcol {{system.type}}" autocomplete="off">
+
+    {{!-- Character Header --}}
+    {{> modules/myz-alt-sheet/templates/actor/partials/character-header.hbs }}
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs actor-tabs" data-group="primary">
+        <a class="item" data-tab="attributes">{{localize "MYZ.ATTRIBUTES"}}</a>
+        <a class="item" data-tab="gear">{{localize "MYZ.GEAR"}}</a>
+        <a class="item" data-tab="info">{{localize "MYZ.INFO"}}</a>
+        <a class="item" data-tab="notes">{{localize "MYZ-ALT.NOTES"}}</a>
+    </nav>
+
+    <div class="sheet-body">
+        {{!-- Attributes Tab --}}
+        <div class="tab" data-group="primary" data-tab="attributes">
+            <div class="container-attributes">
+                {{!-- Attributes/Conditions/Mutations/Mutation points/Talents Column --}}
+                <div class="section-expended">
+                    {{!-- Attributes Section --}}
+                    <div class="attributes">
+                        {{> modules/myz-alt-sheet/templates/actor/partials/attributes.hbs }}
+                    </div>
+                    <div class="rots">
+                        <div>
+                            {{> modules/myz-alt-sheet/templates/actor/partials/rot.hbs }}
+                        </div>
+                        <div>
+                            {{> modules/myz-alt-sheet/templates/actor/partials/permanent-rot.hbs }}
+                        </div>
+
+                    </div>
+                    {{!-- Conditions Section --}}
+                    <div class="conditions">
+                        {{> modules/myz-alt-sheet/templates/actor/partials/conditions.hbs sourceType='critical'
+                                sourceList=criticals sourceLabel='MYZ-ALT.CRITICAL.LABEL'}}
+                    </div>
+                    <div class="sub-columns">
+                        {{!-- Mutations Section --}}
+                        <div class="sub-column1">
+                            {{> modules/myz-alt-sheet/templates/actor/partials/resource-points.hbs sectionName='mutationPoints'}}
+
+                            {{> modules/myz-alt-sheet/templates/actor/partials/abilities.hbs sectionName='mutations'
+                                    sourceType='ability' sourceList=abilities sourceLabel='MYZ.MUTATIONS' minRowsCount='3'}}
+                        </div>
+                        {{!-- Talents Section --}}
+                        <div class="sub-column2">
+                            {{> modules/myz-alt-sheet/templates/actor/partials/abilities.hbs sectionName='talents'
+                                    sourceType='talent' sourceList=talents sourceLabel='MYZ.TALENTS' minRowsCount='5'}}
+                        </div>
+                    </div>
+                </div>
+                {{!-- Skills Columns --}}
+                <div class="section-compact">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/skills.hbs }}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Gear Tab --}}
+        <div class="tab" data-group="primary" data-tab="gear">
+            <div class="container-gear">
+                <div class="section-expended">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/weapons.hbs }}
+                    {{> modules/myz-alt-sheet/templates/actor/partials/armors.hbs }}
+                    {{> modules/myz-alt-sheet/templates/actor/partials/gear.hbs }}
+
+                </div>
+                <div class="section-compact">
+                    <!--                    {{> modules/myz-alt-sheet/templates/actor/partials/encumbrance.hbs }}-->
+                    {{> modules/myz-alt-sheet/templates/actor/partials/consumables.hbs }}
+                    {{> modules/myz-alt-sheet/templates/actor/partials/artifacts.hbs }}
+
+                </div>
+            </div>
+        </div>
+
+        {{!-- Info Tab --}}
+        <div class="tab" data-group="primary" data-tab="info">
+            <div class="container-info">
+
+                {{> modules/myz-alt-sheet/templates/actor/partials/appearance.hbs }}
+                {{> modules/myz-alt-sheet/templates/actor/partials/den.hbs }}
+                <div class="full-width">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/relationships.hbs }}
+                </div>
+                <div class="full-width">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/people.hbs }}
+                </div>
+            </div>
+
+        </div>
+
+        {{!-- Notes Tab --}}
+        <div class="tab" data-group="primary" data-tab="notes">
+            {{> modules/myz-alt-sheet/templates/actor/partials/notes.hbs }}
+        </div>
+
+    </div>
+
+</form>

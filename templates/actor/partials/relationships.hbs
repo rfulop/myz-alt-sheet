@@ -1,0 +1,46 @@
+<div class="section relationships {{system.creatureType}} flexcol">
+    <div class="section-header flexrow">
+        <div class="section-title flex-basis-70">
+            {{localize 'MYZ-ALT.RELATIONSHIPS.LABEL'}}
+        </div>
+        <div class="flexrow">
+            <div class="section-justify-center">
+                {{localize 'MYZ-ALT.RELATIONSHIPS.BUDDY'}}
+            </div>
+            <div class="section-control flex0">
+                <a class="item-create" data-type="myz-alt-sheet.relation" data-characterType="pc">+</a>
+            </div>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each pcRelationships as |relationship index|}}
+            <li class="editable-item section-row-relation flexrow light-bg box-item" data-item-id="{{relationship._id}}">
+                <div class="viewable flex-basis-70" data-item-id="{{relationship._id}}">
+                    <strong>{{relationship.name}}: </strong>{{relationship.system.relation}}
+                </div>
+                <div class="section-control section-buddy">
+                    <input type="checkbox" class="buddy-checkbox" value="{{relationship.system.buddy}}"
+                           data-linked-value="system.buddy" data-item-id="{{relationship._id}}" {{checked relationship.system.buddy}} />
+                </div>
+            </li>
+        {{/each}}
+        <li class="section-row flexrow light-bg">
+            <label class="section-row-label" for="hate">
+                <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.I-HATE'}}:&nbsp;</strong>
+            </label>
+            <input class="section-input-no-border" id="hate" name="system.relationships.hate" type="text" value="{{system.relationships.hate}}" placeholder="" />
+        </li>
+        <li class="section-row flexrow light-bg">
+            <label class="section-row-label" for="protect">
+                <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.I-PROTECT'}}:&nbsp;</strong>
+            </label>
+            <input class="section-input-no-border" id="protect" name="system.relationships.protect" type="text" value="{{system.relationships.protect}}" placeholder="" />
+        </li>
+        <li class="section-row flexrow light-bg">
+            <label class="section-row-label" for="dream">
+                <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.MY-DREAM'}}:&nbsp;</strong>
+            </label>
+            <input class="section-input-no-border" id="dream" name="system.relationships.dream" type="text" value="{{system.relationships.dream}}" placeholder="Dream" />
+        </li>
+    </ol>
+</div>

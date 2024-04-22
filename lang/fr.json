@@ -1,0 +1,54 @@
+{
+  "MYZ-ALT": {
+    "APPEARANCE": {
+      "BODY": "Corps",
+      "CLOTHING": "Vêtements",
+      "FACE": "Visage",
+      "LABEL": "Apparence"
+    },
+    "CRITICAL": {
+      "LABEL": "Blessure critiques"
+    },
+    "DEN": {
+      "DESCRIPTION": "Description",
+      "LABEL": "Ma planque",
+      "STASHED": "Équipement planqué"
+    },
+    "NOTES": "Notes",
+    "PEOPLE": {
+      "LABEL": "Personnes que j'ai rencontrées",
+      "NOTES": "Notes",
+      "ROLE": "Rôle"
+    },
+    "RELATIONSHIPS": {
+      "BUDDY": "Pote",
+      "I-HATE": "Je hais",
+      "I-PROTECT": "Je dois protéger",
+      "LABEL": "Relations",
+      "MY-DREAM": "Mon grand rêve",
+      "PC": {
+        "LABEL": "PJ",
+        "NEW": "Nouveau PJ",
+        "NAME": "Nom du PJ",
+        "RELATION": "Relation avec le PJ",
+        "RELATION-PLACEHOLDER": "Décrivez votre relation avec le PJ"
+      },
+      "NPC": {
+        "LABEL": "PNJ",
+        "NEW": "Nouveau PNJ",
+        "NAME": "Nom du PNJ",
+        "RELATION": "Relation avec le PNJ",
+        "RELATION-PLACEHOLDER": "Décrivez votre relation avec le PNJ"
+      }
+    },
+    "ROT_POINTS": "Points de gangrène",
+    "TRAUMA": {
+      "AGILITY": "Fatigue",
+      "EMPATHY": "Doubt",
+      "STRENGTH": "Damage",
+      "WITS": "Confusion"
+    },
+    "XP_POINTS": "Points d'expérience"
+  }
+}
+

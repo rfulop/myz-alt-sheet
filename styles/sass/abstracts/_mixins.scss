@@ -1,0 +1,40 @@
+@mixin checkboxes-common {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+@mixin checkbox-common($size, $imgUrl) {
+  width: $size;
+  height: $size;
+  background-color: $white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid $black;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0.05em !important;
+  flex: none;
+
+  &:checked::before {
+    content: "";
+    background-image: $imgUrl;
+    background-size: contain;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+    right: 1px;
+  }
+}
+
+@mixin section-input-style($size) {
+  max-width: $size;
+  border: 1px solid black;
+  background-color: white;
+  text-align: center;
+}

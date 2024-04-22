@@ -1,0 +1,64 @@
+<form class="{{cssClass}} {{system.itemType}} item-dialog" autocomplete="off">
+    <div class="flexrow item-container">
+        <div class="item-side">
+            <img class="item-side-img" src="modules/myz-alt-sheet/assets/ico/item-side-img.svg" height="300"
+                 alt="{{localize 'MYZ-ALT.RELATIONSHIPS.LABEL'}}"/>
+        </div>
+        <div class="flex-basis-80">
+            <div class="item-header">
+                <h1 class="item-title">{{localize 'MYZ-ALT.RELATIONSHIPS.LABEL'}}</h1>
+                <div>
+                    <select name="system.characterType" class="item-select">
+                        {{#select system.characterType}}
+                            <option value="npc">{{localize 'MYZ-ALT.RELATIONSHIPS.NPC.LABEL'}}</option>
+                            <option value="pc">{{localize 'MYZ-ALT.RELATIONSHIPS.PC.LABEL'}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            <div class="flexcol item-col">
+                <div class="flexrow item-row">
+                    <div class="flexcol flex-basis-50">
+                        <strong><label for="name">
+                            {{#if (eq system.characterType "pc")}}
+                                {{localize 'MYZ-ALT.RELATIONSHIPS.PC.NAME'}}:
+                            {{else}}
+                                {{localize 'MYZ-ALT.RELATIONSHIPS.NPC.NAME'}}:
+                            {{/if}}
+                        </label></strong>
+                        <input type="text" name="name" value="{{item.name}}" />
+                    </div>
+                    {{#if (eq system.characterType "pc")}}
+                        <div class="flexcol item-label-center">
+                            <strong><label for="buddy">{{localize 'MYZ-ALT.RELATIONSHIPS.BUDDY'}}:</label></strong>
+                            <input class="buddy-checkbox" name="system.buddy" type="checkbox" {{checked system.buddy}} />
+                        </div>
+                    {{else}}
+                        <div class="flexcol">
+                            <strong><label for="role">{{localize 'MYZ-ALT.PEOPLE.ROLE'}}</label></strong>
+                            <input type="text" name="system.role" value="{{system.role}}" />
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="item-row">
+                    <strong><label for="relation">
+                        {{#if (eq system.characterType "pc")}}
+                            {{localize 'MYZ-ALT.RELATIONSHIPS.PC.RELATION'}}:
+                        {{else}}
+                            {{localize 'MYZ-ALT.RELATIONSHIPS.NPC.RELATION'}}:
+                        {{/if}}
+                    </label></strong>
+                    {{#if (eq system.characterType "pc")}}
+                        <input type="text" name="system.relation" value="{{system.relation}}" placeholder="{{localize 'MYZ-ALT.RELATIONSHIPS.PC.RELATION-PLACEHOLDER'}}">
+                    {{else}}
+                        <input type="text" name="system.relation" value="{{system.relation}}" placeholder="{{localize 'MYZ-ALT.RELATIONSHIPS.NPC.RELATION-PLACEHOLDER'}}">
+                    {{/if}}
+                </div>
+                <div class="item-row item-edit">
+                    <strong><label for="notes">{{localize 'MYZ-ALT.NOTES'}}:</label></strong>
+                    {{editor system.notes target="system.notes" button=true editable=editable engine="prosemirror" collaborate=false}}
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

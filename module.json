@@ -1,0 +1,50 @@
+{
+  "id": "myz-alt-sheet",
+  "title": "Mutant year zero - Alternative Sheet",
+  "description": "An alternative mutant character sheet for mutant year zero",
+  "version": "11.0.5",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "authors": [
+    {
+      "name": "Woomb"
+    }
+  ],
+  "esmodules": [
+    "scripts/module.js"
+  ],
+  "styles": [
+    "styles/css/main.css"
+
+  ],
+  "documentTypes": {
+    "Item": {
+      "relation": {
+        "htmlFields": ["notes"]
+      }
+    }
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "mutant-year-zero"
+      }
+    ]
+  },
+  "languages": [
+    {
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json",
+    "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json",
+      "flags": {}
+    }
+  ]
+}

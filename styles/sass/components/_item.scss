@@ -1,0 +1,57 @@
+.item-dialog {
+  font-family: arvo-regular, serif;
+
+  .item-container {
+    gap: 1rem;
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-title {
+      font-family: big-noodle-titling;
+      font-size: $item-title-fs;
+      color: $myz-pink;
+      letter-spacing: 2px;
+      border-bottom: 2px solid $myz-pink;
+    }
+
+    .item-col {
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+
+    .item-row {
+
+      .buddy-checkbox {
+        @include checkbox-common(1.6rem, url('#{$ico-path}radiation.svg'));
+        align-self: center;
+      }
+    }
+
+    .item-label-center {
+      align-items: center;
+    }
+
+    .item-edit {
+      //min-height: 200px;
+
+      .editor {
+        min-height: 100px;
+
+        &.prosemirror {
+          min-height: $section-row-height * 8;
+        }
+      }
+    }
+
+    .item-side {
+      .item-side-img {
+        border: none;
+
+      }
+    }
+  }
+}

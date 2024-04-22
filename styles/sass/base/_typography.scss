@@ -1,0 +1,11 @@
+$font-path: '../../fonts/';
+
+@font-face {
+  font-family: "big-noodle-titling";
+  src: url("#{$font-path}big_noodle_titling/big_noodle_titling.ttf");
+}
+
+@font-face {
+  font-family: "arvo-regular";
+  src: url("#{$font-path}arvo_regular/Arvo-Regular-MYZ.ttf");
+}

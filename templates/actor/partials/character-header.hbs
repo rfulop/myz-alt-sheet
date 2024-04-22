@@ -1,0 +1,40 @@
+<div class="section-sheet-header">
+    <div class="flexrow header-row">
+        <div class="flexcol header-col-img flex-basis-20">
+            <img class="header-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"  alt="{{actor.name}}"/>
+        </div>
+        <div class="flexcol flex-basis-80 header-main">
+            <div class="flexrow header-row">
+                <h1 class="header-title flex-basis-50">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MYZ.NAME'}}" />
+                </h1>
+                <input class="header-input flex-basis-25" name="system.specificType" type="text" value="{{system.specificType}}" placeholder="{{localize (toUpperCase (concat 'MYZ.SPECIFIC_TYPE_FOR_' system.creatureType))}}" />
+                <input class="header-input flex-basis-25" name="system.rank" type="text" value="{{system.rank}}" placeholder="{{localize (toUpperCase (concat 'MYZ.RANK_FOR_'system.creatureType))}}" />
+            </div>
+            <div class="flexrow header-row">
+                <input class="header-input flex-basis-25" name="system.role" type="text" value="{{system.role}}" placeholder="{{localize (toUpperCase (concat 'MYZ.ROLE_FOR_' system.creatureType))}}" />
+                <div class="header-label">
+                    <label for="system.age">{{localize "MYZ.AGE"}}:</label>
+                    <input class="header-input short-input" name="system.age" type="text" data-type="Number" value="{{system.age}}" />
+                </div>
+            </div>
+            <div class="flexrow header-row">
+                <div class="flexcol flex-basis-25 flex-grow-0">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/experience.hbs }}
+                </div>
+                <div class="flexcol">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/armor-header.hbs }}
+                </div>
+                <div class="flexcol">
+                    {{> modules/myz-alt-sheet/templates/actor/partials/encumbrance.hbs }}
+                </div>
+                <div class="flexcol header-button">
+                    <button class="button-roll dark-btn">{{localize 'MYZ.ROLL'}}</button>
+                </div>
+                <div class="flexcol header-button">
+                    <button class="button-push dark-btn">{{localize 'MYZ.PUSH'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

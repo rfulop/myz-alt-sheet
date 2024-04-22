@@ -1,0 +1,140 @@
+.section-sheet-header {
+  flex: 0;
+
+  .header-col-img {
+    margin-bottom: $section-padding;
+  }
+
+  .header-img {
+    flex: 0 0 148px;
+    height: 148px;
+    width: 148px;
+  }
+
+  .header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: $section-padding;
+    min-height: $section-row-height;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    flex-wrap: nowrap;
+    line-height: unset !important;
+    gap: 0.3rem;
+  }
+
+  .header-main {
+    align-self: flex-end;
+  }
+
+  .flex-grow-0 {
+    flex-grow: 0;
+  }
+
+  .header-button {
+    align-self: flex-end;
+    margin-bottom: $columns-gap;
+
+    .dark-btn {
+      border: 1px solid $black;
+      background-color: $section-main-color;
+    }
+  }
+
+  .section {
+
+    .section-header {
+      color: $white;
+      background-color: $section-head-color;
+      padding: 0.2rem;
+      border-bottom: solid 1px $black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-armor {
+      cursor:pointer;
+      padding: 5px 0 0 0;
+      text-align: center;
+      width:100%;
+      min-height:26px;
+      background-image: url('#{$ico-path}shield.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .section-encumbrance {
+      flex-wrap: nowrap;
+      justify-content: center !important;
+      gap: unset;
+
+      &.encumbered {
+        background-color: $encumbrance;
+      }
+    }
+
+    .point-checkboxes {
+      @include checkboxes-common;
+
+      .point-checkbox {
+        @include checkbox-common(1.3rem, url('#{$ico-path}radiation.svg'));
+      }
+    }
+
+    .section-title {
+      font-family: big-noodle-titling;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  .header-title {
+    font-family: big-noodle-titling;
+    font-size: 2.3rem;
+    letter-spacing: 2px;
+    background-color: $section-main-color;
+    border: 1px solid $black;
+    flex-grow: 0;
+
+    input {
+      border: none;
+      background: transparent;
+      height: auto;
+    }
+  }
+
+  .header-label {
+    display: flex;
+    flex-grow: 0;
+    align-items: baseline;
+    gap: $section-padding;
+    background-color: $section-light-color;
+    border: 1px solid $black;
+
+    label {
+      padding-left: 8px;
+    }
+
+    input {
+      border: none;
+    }
+  }
+
+  .header-input {
+    border: 1px solid $black;
+    flex-grow: 0;
+    background-color: $section-light-color;
+
+    &.short-input {
+      width: 2rem;
+    }
+
+    &.dark-bg {
+      background-color: $section-main-color;
+
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="section people {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title flex-basis-20">
+            {{localize 'MYZ-ALT.PEOPLE.LABEL'}}
+        </div>
+        <div class="section-justify-center flex-basis-15">
+            {{localize 'MYZ-ALT.PEOPLE.ROLE'}}
+        </div>
+        <div class="flexrow section-justify-center flex-basis-65">
+            <div class="section-justify-center">
+                {{localize 'MYZ-ALT.PEOPLE.NOTES'}}
+            </div>
+            <div class="section-control flex0">
+                <a class="item-create" data-type="myz-alt-sheet.relation" data-characterType="npc">+</a>
+            </div>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each npcRelationships as |relationship index|}}
+            <li class="editable-item viewable section-row-relation section-table-line flexrow light-bg box-item" data-item-id="{{relationship._id}}">
+                <div class="flexrow flex-basis-20" data-item-id="{{relationship._id}}">
+                    <strong>{{relationship.name}}: </strong>
+                </div>
+                <div class="flexrow flex-basis-15 section-justify-center">
+                    {{relationship.system.role}}
+                </div>
+                <div class="flexrow flex-basis-65">
+                    {{relationship.system.relation}}
+                </div>
+            </li>
+        {{/each}}
+    </ol>
+</div>

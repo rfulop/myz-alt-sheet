@@ -1,0 +1,46 @@
+{{! PARAM: sourceType: to create a new item type in the list}}
+{{! PARAM: sourceList: existing list of mutations/powers/contacts/criticals}}
+{{! PARAM: sourceLabel: to create a header label}}
+
+<div class="section conditions {{system.creatureType}} flexcol">
+    <div class="section-header section-title">
+        {{localize "MYZ.CONDITIONS"}}
+    </div>
+    <ol class="item-list">
+        {{#groupEveryTwo system.conditions}}
+            <li class="section-row section-gap-border flexrow">
+                {{#each this}}
+                    <div class="section-column flexrow">
+                        <div class="section-name">
+                            {{localize (concat "MYZ.CONDITION_" (toUpperCase key))}}
+                        </div>
+                        <input class="state-checkbox" name="system.conditions.{{key}}.value" type="checkbox" {{checked value.value}} />
+                    </div>
+                {{/each}}
+            </li>
+        {{/groupEveryTwo}}
+        <li class="section-row flexrow light-bg">
+            <div class="font-size-8">{{localize sourceLabel}}:</div>
+            <div class="section-control flex0">
+                <a class="item-create" data-type="{{sourceType}}">+</a>
+            </div>
+        </li>
+        {{#each sourceList as |listItem index|}}
+            <li class="section-row-img flexrow light-bg editable-item" data-item-id="{{listItem._id}}">
+                <img class="section-img" src="{{listItem.img}}"  alt="{{listItem.name}}"/>
+                <div class="section-name rollable viewable" data-item-id="{{listItem._id}}">
+                    {{listItem.name}}
+                </div>
+                <div class="flex2">{{listItem.system.effect}}</div>
+                <div class="section-control flex0">
+                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                        <i class="fas fa-comment"></i>
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+        {{#each (range sourceList.length 2)}}
+            <li class="section-row flexrow light-bg"></li>
+        {{/each}}
+    </ol>
+</div>

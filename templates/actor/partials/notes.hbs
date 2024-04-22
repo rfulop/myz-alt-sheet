@@ -1,0 +1,8 @@
+<div class="section player-notes {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title">{{localize 'MYZ-ALT.NOTES'}}</div>
+    </div>
+    <div class="section-notes light-bg">
+        {{editor system.notes target="system.notes" button=true editable=editable engine="prosemirror" collaborate=false}}
+    </div>
+</div>

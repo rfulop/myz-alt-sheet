@@ -1,0 +1,23 @@
+<div class="section attributes {{system.creatureType}} flexcol">
+    <div class="section-header section-title">
+        {{localize "MYZ.ATTRIBUTES"}}
+    </div>
+    <ol class="item-list">
+        {{#each system.attributes as |attribute key|}}
+            <li class="section-row section-gap-border flexrow">
+                <div class="section-column flexcol flex-basis-40">
+                    <div class="section-name section-field roll-attribute rollable" data-attribute="{{key}}">
+                        {{localize (toUpperCase (concat "MYZ.ATTRIBUTE_" key "_" ../system.creatureType))}}
+                    </div>
+                    <input class="section-value attribute-max" data-attribute="{{key}}" type="number" name="system.attributes.{{key}}.max" value="{{attribute.max}}">
+                    <input hidden class="section-value" type="number" name="system.attributes.{{key}}.value" value="{{attribute.value}}">
+                </div>
+                <div class="section-column flexcol flex-basis-60">
+                    <div class="section-field font-size-7">{{localize (toUpperCase (concat "MYZ-ALT.TRAUMA." key)) }}</div>
+                    <div class="trauma-checkboxes flex2" data-attribute="{{key}}">
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ol>
+</div>

@@ -1,0 +1,48 @@
+<div class="section armors {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title flex-basis-50">{{localize 'MYZ.ARMOR'}}</div>
+        <div class="section-justify-center flex-basis-30">
+            {{localize 'MYZ.ARMOR_RATING'}}
+        </div>
+        <div class="section-control flex-basis-15">
+            <a class="item-create" data-type="armor">+</a>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each armor as |armor key|}}
+            <li class="section-row-img flexrow box-item physical editable-armor section-table-line" data-physical="1" data-item-id="{{armor._id}}">
+                <div class="flexrow section-center section-gap-items flex-basis-50">
+
+                    <img class="section-img" src="{{armor.img}}"  alt="{{armor.name}}"/>
+                    <div class="rollable armor-item-roll {{#if (isBroken armor)}}broken{{/if}}" data-item-id="{{armor._id}}">
+                        {{armor.name}}
+                    </div>
+                </div>
+                <div class="flexrow section-center section-justify-center flex-basis-30">
+                    <input type="number" class="owned-item-value section-value" value="{{armor.system.rating.value}}"
+                           data-linked-value="system.rating.value" data-item-id="{{armor._id}}">
+                    <label class="section-label-bonus">/{{armor.system.rating.max}}</label>
+                </div>
+                <div class="section-control section-center flex-basis-15">
+                    {{#unless armor.system.stashed}}
+                        <a class="item-control item-toggle {{#unless armor.system.equipped}}item-unequipped{{/unless}}"
+                           title='{{localize "MYZ.EQUIP"}}'>
+                            <i class="fas fa-tshirt"></i>
+                        </a>
+                    {{/unless}}
+                    {{#if armor.system.stashed}}
+                        <a class="item-control item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                            <i class="fa-regular fa-box"></i>
+                        </a>
+                    {{/if}}
+                    <a class="item-control item-edit" title="{{localize 'MYZ.EDIT'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+        {{#each (range armor.length 2)}}
+            <li class="section-row flexrow light-bg"></li>
+        {{/each}}
+    </ol>
+</div>

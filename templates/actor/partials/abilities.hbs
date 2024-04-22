@@ -1,0 +1,32 @@
+{{! PAMAR: sectionName: to identify the section}}
+{{! PARAM: sourceType: to create a new item type in the list}}
+{{! PARAM: sourceList: existing list of mutations/powers/contacts}}
+{{! PARAM: sourceLabel: to create a header label}}
+{{! PARAM: minRowsCount: minimum number of rows}}
+
+<div class="section {{className}} {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title">{{localize sourceLabel}}</div>
+        <div class="section-control flex0">
+<!--            <a class="item-create" data-type="{{sourceType}}">{{localize "MYZ.Add"}}</a>-->
+            <a class="item-create" data-type="{{sourceType}}">+</a>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each sourceList as |listItem index|}}
+            <li class="editable-item section-row flexrow" data-item-id="{{listItem._id}}">
+                <div class="viewable section-name" data-item-id="{{listItem._id}}">
+                    {{listItem.name}}
+                </div>
+                <div class="section-control flex0">
+                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                        <i class="fas fa-comment"></i>
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+        {{#each (range sourceList.length minRowsCount)}}
+            <li class="section-row flexrow light-bg"></li>
+        {{/each}}
+    </ol>
+</div>

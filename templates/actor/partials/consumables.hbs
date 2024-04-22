@@ -1,0 +1,51 @@
+<div class="section consumables {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title">{{localize "MYZ.CONSUMABLES"}}</div>
+    </div>
+    <div class="consumables {{system.creatureType}}">
+        <div class="section-row-img flexrow light-bg box-item resource">
+            <img class="section-img" src=" modules/myz-alt-sheet/assets/images/grub.png"  alt="{{localize 'MYZ.GRUB'}}"/>
+            <div class="viewable section-name">{{localize 'MYZ.GRUB'}}</div>
+            <input class="section-tiny-value" name="system.resources.grub.value" type="number" data-type="Number" min="0"
+                   data-tooltip="{{localize 'MYZ.CLEAN'}}" value="{{system.resources.grub.value}}" />
+            <input class="section-tiny-value rot" name="system.resources.grubRot.value" type="number" data-type="Number"
+                   min="0" data-tooltip="<i class='fa-regular fa-biohazard'></i> {{localize 'MYZ.ROT'}}" value="{{system.resources.grubRot.value}}" />
+            <div class="section-control">
+                <span>{{ math (math system.resources.grub.value "+" system.resources.grubRot.value) "/" 4 }}</span>
+                <i class="fas fa-weight-hanging"></i>
+            </div>
+        </div>
+        <div class="section-row-img flexrow light-bg box-item resource">
+            <img class="section-img" src=" modules/myz-alt-sheet/assets/images/water.png"  alt="{{localize 'MYZ.WATER'}}"/>
+            <div class="viewable section-name">{{localize 'MYZ.WATER'}}</div>
+            <input class="section-tiny-value" name="system.resources.water.value" type="number" data-type="Number" min="0"
+                   data-tooltip="{{localize 'MYZ.CLEAN'}}" value="{{system.resources.water.value}}" />
+            <input class="section-tiny-value rot" name="system.resources.waterRot.value" type="number" data-type="Number"
+                   min="0" data-tooltip="<i class='fa-regular fa-biohazard'></i> {{localize 'MYZ.ROT'}}" value="{{system.resources.waterRot.value}}" />
+            <div class="section-control">
+                <span>{{ math (math system.resources.water.value "+" system.resources.waterRot.value) "/" 4 }}</span>
+                <i class="fas fa-weight-hanging"></i>
+            </div>
+        </div>
+        <div class="section-row-img flexrow light-bg box-item resource">
+            <img class="section-img" src=" modules/myz-alt-sheet/assets/images/bullets.png"  alt="{{localize 'MYZ.BULLETS'}}"/>
+            <div class="viewable section-name">{{localize 'MYZ.BULLETS'}}</div>
+            <input class="section-tiny-value" name="system.resources.bullets.value" type="number" data-type="Number" min="0"
+                   data-tooltip="{{localize 'MYZ.CLEAN'}}" value="{{system.resources.bullets.value}}" />
+            <div class="section-control">
+                <span>{{ math system.resources.bullets.value "/" 4 }}</span>
+                <i class="fas fa-weight-hanging"></i>
+            </div>
+        </div>
+        <div class="section-row-img flexrow light-bg box-item resource">
+            <img class="section-img" src=" modules/myz-alt-sheet/assets/images/booze.png"  alt="{{localize 'MYZ.BOOZE'}}"/>
+            <div class="viewable section-name">{{localize 'MYZ.BOOZE'}}</div>
+            <input class="section-tiny-value" name="system.resources.booze.value" type="number" data-type="Number" min="0"
+                   data-tooltip="{{localize 'MYZ.CLEAN'}}" value="{{system.resources.booze.value}}" />
+            <div class="section-control">
+                <span>{{ system.resources.booze.value }}</span>
+                <i class="fas fa-weight-hanging"></i>
+            </div>
+        </div>
+    </div>
+</div>

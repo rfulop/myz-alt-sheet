@@ -1,0 +1,33 @@
+<div class="section artifacts {{system.creatureType}} flexcol">
+    <div class="section-header">
+        <div class="section-title">{{localize "MYZ.ARTIFACTS"}}</div>
+        <div class="section-control flex0">
+            <a class="item-create" data-type="artifact">+</a>
+        </div>
+    </div>
+    <ol class="item-list">
+        {{#each artifacts as |artifact key|}}
+            <li class="editable-item section-row-img gear flexrow light-bg box-item" data-physical="1" data-item-id="{{artifact._id}}">
+                <img class="section-img" src="{{artifact.img}}"  alt="{{artifact.name}}"/>
+                <div class="viewable section-name" data-item-id="{{artifact._id}}">
+                    {{artifact.name}}
+                </div>
+                <div class="section-control flex0">
+                    <span>{{artifact.system.weight}}</span>
+                    <i class="fas fa-weight-hanging"></i>
+                    {{#if artifact.system.stashed}}
+                        <a class="item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                            <i class="fa-regular fa-box"></i>
+                        </a>
+                    {{/if}}
+                    <a class="chatable" data-item-id="{{artifact._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                        <i class="fas fa-comment"></i>
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+        {{#each (range artifacts.length 2)}}
+            <li class="section-row flexrow light-bg"></li>
+        {{/each}}
+    </ol>
+</div>
