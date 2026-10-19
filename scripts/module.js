@@ -1,29 +1,24 @@
-import { MutantYearZeroAlternateActorSheet } from "./ui/pcSheet.js"
+import { MutantYearZeroAlternateActorSheet } from "./ui/pcSheet.js";
 import { preloadHandlebarsTemplates } from "./core/preloadTemplates.js";
-import {handlebarsHelpers} from "./utils/handlebarsHelpers.js";
-import {hooks} from "./hooks/hooks.js";
+import { handlebarsHelpers } from "./utils/handlebarsHelpers.js";
+import { hooks } from "./hooks/hooks.js";
 import RelationshipData from "./data/relationshipData.js";
 import RelationshipSheet from "./ui/relationshipSheet.js";
+import { MODULE_ID, typeRelation } from "./constants.js";
 
+export { typeRelation } from "./constants.js";
 
-const moduleID = "myz-alt-sheet";
-export const typeRelation = `${moduleID}.relation`;
-
-
-Hooks.once('init', async function() {
-    Actors.registerSheet(moduleID, MutantYearZeroAlternateActorSheet, { types: ["mutant"], makeDefault: true});
-
-    Object.assign(CONFIG.Item.dataModels, {
-        [typeRelation]: RelationshipData
+Hooks.once("init", () => {
+    CONFIG.Item.dataModels[typeRelation] = RelationshipData;
+    CONFIG.Item.typeLabels[typeRelation] = "MYZ-ALT.RELATIONSHIPS.LABEL";
+    const sheets = foundry.applications.apps.DocumentSheetConfig;
+    sheets.registerSheet(foundry.documents.Actor, MODULE_ID, MutantYearZeroAlternateActorSheet, {
+        types: ["mutant"], makeDefault: true, label: "MYZ-ALT.SHEET_LABEL"
     });
-
-    Items.registerSheet(moduleID, RelationshipSheet, {
-        types: [typeRelation],
-        makeDefault: true,
-        label: 'Relationship'
+    sheets.registerSheet(foundry.documents.Item, MODULE_ID, RelationshipSheet, {
+        types: [typeRelation], makeDefault: true, label: "MYZ-ALT.RELATIONSHIPS.LABEL"
     });
-
-    await preloadHandlebarsTemplates();
-    await handlebarsHelpers();
-    await hooks();
+    handlebarsHelpers();
+    hooks();
 });
+Hooks.once("setup", preloadHandlebarsTemplates);

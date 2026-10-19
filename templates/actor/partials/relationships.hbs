@@ -1,4 +1,4 @@
-<div class="section relationships {{system.creatureType}} flexcol">
+<div data-relation-type="pc" class="section relationships {{system.creatureType}} flexcol">
     <div class="section-header flexrow">
         <div class="section-title flex-basis-70">
             {{localize 'MYZ-ALT.RELATIONSHIPS.LABEL'}}
@@ -8,14 +8,14 @@
                 {{localize 'MYZ-ALT.RELATIONSHIPS.BUDDY'}}
             </div>
             <div class="section-control flex0">
-                <a class="item-create" data-type="myz-alt-sheet.relation" data-characterType="pc">+</a>
+                <a class="item-create" data-type="myz-alt-sheet.relation" data-character-type="pc" data-action="createItem">+</a>
             </div>
         </div>
     </div>
     <ol class="item-list">
         {{#each pcRelationships as |relationship index|}}
-            <li class="editable-item section-row-relation flexrow light-bg box-item" data-item-id="{{relationship._id}}">
-                <div class="viewable flex-basis-70" data-item-id="{{relationship._id}}">
+            <li class="editable-item section-row-relation flexrow light-bg box-item draggable" data-item-id="{{relationship._id}}">
+                <div class="viewable flex-basis-70" data-item-id="{{relationship._id}}" data-action="viewItem">
                     <strong>{{relationship.name}}: </strong>{{relationship.system.relation}}
                 </div>
                 <div class="section-control section-buddy">
@@ -28,19 +28,19 @@
             <label class="section-row-label" for="hate">
                 <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.I-HATE'}}:&nbsp;</strong>
             </label>
-            <input class="section-input-no-border" id="hate" name="system.relationships.hate" type="text" value="{{system.relationships.hate}}" placeholder="" />
+            <input class="section-input-no-border" id="hate" name="system.hate" type="text" value="{{system.hate}}" placeholder="" />
         </li>
         <li class="section-row flexrow light-bg">
             <label class="section-row-label" for="protect">
                 <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.I-PROTECT'}}:&nbsp;</strong>
             </label>
-            <input class="section-input-no-border" id="protect" name="system.relationships.protect" type="text" value="{{system.relationships.protect}}" placeholder="" />
+            <input class="section-input-no-border" id="protect" name="system.protect" type="text" value="{{system.protect}}" placeholder="" />
         </li>
         <li class="section-row flexrow light-bg">
             <label class="section-row-label" for="dream">
                 <strong>{{localize 'MYZ-ALT.RELATIONSHIPS.MY-DREAM'}}:&nbsp;</strong>
             </label>
-            <input class="section-input-no-border" id="dream" name="system.relationships.dream" type="text" value="{{system.relationships.dream}}" placeholder="Dream" />
+            <input class="section-input-no-border" id="dream" name="system.dream" type="text" value="{{system.dream}}" placeholder="Dream" />
         </li>
     </ol>
 </div>

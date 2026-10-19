@@ -36,7 +36,6 @@
     }
 
     .item-edit {
-      //min-height: 200px;
 
       .editor {
         min-height: 100px;
@@ -54,4 +53,13 @@
       }
     }
   }
+}
+
+.item-dialog {
+  overflow-y: auto;
+  font-family: arvo-regular, serif;
+}
+
+.item-dialog prose-mirror {
+  min-height: 100px;
 }

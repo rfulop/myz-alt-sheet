@@ -43,12 +43,15 @@
     },
     "ROT_POINTS": "Points de gangrène",
     "TRAUMA": {
-      "AGILITY": "Fatigue",
-      "EMPATHY": "Doubt",
-      "STRENGTH": "Damage",
+      "AGILITY": "Épuisement",
+      "EMPATHY": "Doute",
+      "STRENGTH": "Dégâts",
       "WITS": "Confusion"
     },
-    "XP_POINTS": "Points d'expérience"
+    "XP_POINTS": "Points d'expérience",
+    "SHEET_LABEL": "Mutant Year Zero — Fiche alternative",
+    "NO_ROLL": "Effectuez un jet pour ce personnage avant de le pousser.",
+    "TRAUMA_LABEL": "Traumatisme",
+    "POINT": "Point"
   }
 }
-

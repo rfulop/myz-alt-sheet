@@ -1,33 +1,21 @@
-export default class RelationshipSheet extends ItemSheet {
-    /** @override */
-    get template() {
-        return "modules/myz-alt-sheet/templates/item/relation-sheet.hbs";
-    }
+const { api, sheets, ux } = foundry.applications;
 
-    /** @override */
-    static get defaultOptions() {
-        return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ["mutant-year-zero", "myz-alt", "sheet", "item", "relation"],
-            width: 520,
-            height: 360,
+export default class RelationshipSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheetV2) {
+    static DEFAULT_OPTIONS = {
+        classes: ["mutant-year-zero", "myz-alt", "sheet", "item", "relation"],
+        position: { width: 560, height: 490 },
+        window: { resizable: true },
+        form: { submitOnChange: true, closeOnSubmit: false }
+    };
+    static PARTS = {
+        body: { template: "modules/myz-alt-sheet/templates/item/relation-sheet.hbs" }
+    };
+    async _prepareContext(options) {
+        const context = await super._prepareContext(options);
+        Object.assign(context, { item: this.item, system: this.item.system, editable: this.isEditable });
+        context.notesHTML = await ux.TextEditor.implementation.enrichHTML(this.item.system.notes, {
+            secrets: this.item.isOwner, relativeTo: this.item
         });
-    }
-
-    async getData(options) {
-        return {
-            ...super.getData(options),
-            item: this.item,
-            system: this.item.system,
-        };
-    }
-
-    activateListeners(html) {
-        super.activateListeners(html);
-
-        // Everything below here is only needed if the sheet is editable
-        if (!this.options.editable) {
-        }
-
-        // Roll handlers, click handlers, etc. would go here.
+        return context;
     }
 }

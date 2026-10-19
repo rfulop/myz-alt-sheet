@@ -1,5 +1,5 @@
 export const handlebarsHelpers = function() {
-    Handlebars.registerHelper('range', function(start, end) {
+    Handlebars.registerHelper('myzAltRange', function(start, end) {
         const range = [];
         for (let i = start; i < end; i++) {
             range.push(i);
@@ -7,9 +7,9 @@ export const handlebarsHelpers = function() {
         return range;
     });
 
-    Handlebars.registerHelper('groupEveryTwo', function (context, options) {
+    Handlebars.registerHelper('myzAltGroupEveryTwo', function (context, options) {
         let result = [];
-        let keys = Object.keys(context);
+        let keys = Object.keys(context ?? {});
         let temp = [];
 
         for (let i = 0; i < keys.length; i++) {

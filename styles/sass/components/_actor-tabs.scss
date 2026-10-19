@@ -4,3 +4,30 @@
   min-height: $section-row-height;
   align-items: center;
 }
+
+.actor-tabs {
+  flex: 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 4px 0 5px;
+}
+
+.actor-tabs {
+  height: 35px;
+  min-height: 35px;
+  padding: 0;
+  gap: 0;
+  line-height: normal;
+}
+
+.actor-tabs .item {
+  padding: 0;
+  line-height: 23px;
+  font-family: big-noodle-titling;
+  font-size: 1.3rem;
+}
+
+.actor-tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}

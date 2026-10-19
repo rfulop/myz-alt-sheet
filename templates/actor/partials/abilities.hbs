@@ -8,24 +8,24 @@
     <div class="section-header">
         <div class="section-title">{{localize sourceLabel}}</div>
         <div class="section-control flex0">
-<!--            <a class="item-create" data-type="{{sourceType}}">{{localize "MYZ.Add"}}</a>-->
-            <a class="item-create" data-type="{{sourceType}}">+</a>
+<!--            <a class="item-create" data-type="{{sourceType}}" data-action="createItem">{{localize "MYZ.Add"}}</a>-->
+            <a class="item-create" data-type="{{sourceType}}" data-action="createItem">+</a>
         </div>
     </div>
     <ol class="item-list">
         {{#each sourceList as |listItem index|}}
-            <li class="editable-item section-row flexrow" data-item-id="{{listItem._id}}">
-                <div class="viewable section-name" data-item-id="{{listItem._id}}">
+            <li class="editable-item section-row flexrow draggable" data-item-id="{{listItem._id}}">
+                <div class="viewable section-name" data-item-id="{{listItem._id}}" data-action="viewItem">
                     {{listItem.name}}
                 </div>
                 <div class="section-control flex0">
-                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}" data-action="sendToChat">
                         <i class="fas fa-comment"></i>
                     </a>
                 </div>
             </li>
         {{/each}}
-        {{#each (range sourceList.length minRowsCount)}}
+        {{#each (myzAltRange sourceList.length minRowsCount)}}
             <li class="section-row flexrow light-bg"></li>
         {{/each}}
     </ol>
