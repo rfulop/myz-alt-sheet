@@ -7,7 +7,7 @@
         {{localize "MYZ.CONDITIONS"}}
     </div>
     <ol class="item-list">
-        {{#groupEveryTwo system.conditions}}
+        {{#myzAltGroupEveryTwo system.conditions}}
             <li class="section-row section-gap-border flexrow">
                 {{#each this}}
                     <div class="section-column flexrow">
@@ -18,28 +18,28 @@
                     </div>
                 {{/each}}
             </li>
-        {{/groupEveryTwo}}
+        {{/myzAltGroupEveryTwo}}
         <li class="section-row flexrow light-bg">
             <div class="font-size-8">{{localize sourceLabel}}:</div>
             <div class="section-control flex0">
-                <a class="item-create" data-type="{{sourceType}}">+</a>
+                <a class="item-create" data-type="{{sourceType}}" data-action="createItem">+</a>
             </div>
         </li>
         {{#each sourceList as |listItem index|}}
-            <li class="section-row-img flexrow light-bg editable-item" data-item-id="{{listItem._id}}">
+            <li class="section-row-img flexrow light-bg editable-item draggable" data-item-id="{{listItem._id}}">
                 <img class="section-img" src="{{listItem.img}}"  alt="{{listItem.name}}"/>
-                <div class="section-name rollable viewable" data-item-id="{{listItem._id}}">
+                <div class="section-name rollable viewable" data-item-id="{{listItem._id}}" data-action="viewItem">
                     {{listItem.name}}
                 </div>
                 <div class="flex2">{{listItem.system.effect}}</div>
                 <div class="section-control flex0">
-                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                    <a class="chatable" data-item-id="{{listItem._id}}" title="{{localize 'MYZ.TOCHAT'}}" data-action="sendToChat">
                         <i class="fas fa-comment"></i>
                     </a>
                 </div>
             </li>
         {{/each}}
-        {{#each (range sourceList.length 2)}}
+        {{#each (myzAltRange sourceList.length 2)}}
             <li class="section-row flexrow light-bg"></li>
         {{/each}}
     </ol>

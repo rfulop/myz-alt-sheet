@@ -1,4 +1,4 @@
-<div class="section people {{system.creatureType}} flexcol">
+<div data-relation-type="npc" class="section people {{system.creatureType}} flexcol">
     <div class="section-header">
         <div class="section-title flex-basis-20">
             {{localize 'MYZ-ALT.PEOPLE.LABEL'}}
@@ -11,13 +11,13 @@
                 {{localize 'MYZ-ALT.PEOPLE.NOTES'}}
             </div>
             <div class="section-control flex0">
-                <a class="item-create" data-type="myz-alt-sheet.relation" data-characterType="npc">+</a>
+                <a class="item-create" data-type="myz-alt-sheet.relation" data-character-type="npc" data-action="createItem">+</a>
             </div>
         </div>
     </div>
     <ol class="item-list">
         {{#each npcRelationships as |relationship index|}}
-            <li class="editable-item viewable section-row-relation section-table-line flexrow light-bg box-item" data-item-id="{{relationship._id}}">
+            <li class="editable-item viewable section-row-relation section-table-line flexrow light-bg box-item draggable" data-item-id="{{relationship._id}}" data-action="viewItem">
                 <div class="flexrow flex-basis-20" data-item-id="{{relationship._id}}">
                     <strong>{{relationship.name}}: </strong>
                 </div>

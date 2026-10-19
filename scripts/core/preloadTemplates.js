@@ -1,7 +1,7 @@
-export const preloadHandlebarsTemplates = async function() {
+
 
     // Define template paths to load
-    const templatePaths = [
+export const templatePaths = [
 
         // Actor Sheet Partials
         "modules/myz-alt-sheet/templates/actor/actor-sheet.hbs",
@@ -31,6 +31,5 @@ export const preloadHandlebarsTemplates = async function() {
         ]
 
 
-    // Load the template parts
-    return await loadTemplates(templatePaths);
-};
+
+export const preloadHandlebarsTemplates = () => foundry.applications.handlebars.loadTemplates(templatePaths);

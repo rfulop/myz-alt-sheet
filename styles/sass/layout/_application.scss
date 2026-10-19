@@ -1,0 +1,82 @@
+.window-content {
+  background: url("../../../../systems/mutant-year-zero/ui/mutant-sheet-bg.jpg") center / cover no-repeat;
+  color: #191813;
+  padding: 8px;
+  overflow: hidden;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  line-height: normal;
+}
+
+&.application.actor {
+  min-width: $sheet-min-width;
+  // Allow this sheet to use the full viewport instead of reserving hotbar space.
+  max-height: 100vh;
+}
+
+.alt-sheet-content {
+  min-height: 0;
+  height: 100%;
+  gap: 0;
+  container: character-sheet / inline-size;
+}
+
+.sheet-body {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sheet-body > .tab {
+  display: none;
+}
+
+.sheet-body > .tab.active {
+  display: block;
+}
+
+input, select, textarea {
+  color: #191813;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  border-radius: 3px;
+}
+
+input[type="text"], input[type="number"], select {
+  height: 26px;
+  padding: 1px 3px;
+  border: 1px solid #7a7971;
+  background: rgba(0, 0, 0, .05);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  flex: none;
+}
+
+input[type="checkbox"]::before, input[type="checkbox"]::after {
+  display: none;
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 1;
+}
+
+button.dark-btn {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  color: #191813;
+  background: $section-main-color;
+  border-radius: 3px;
+  height: 28px;
+  min-height: 28px;
+  padding: 0 3px;
+  line-height: 26px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+}

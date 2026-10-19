@@ -1,4 +1,4 @@
-<form class="{{cssClass}} {{system.itemType}} item-dialog" autocomplete="off">
+<section class="item-dialog alt-sheet-content">
     <div class="flexrow item-container">
         <div class="item-side">
             <img class="item-side-img" src="modules/myz-alt-sheet/assets/ico/item-side-img.svg" height="300"
@@ -9,10 +9,10 @@
                 <h1 class="item-title">{{localize 'MYZ-ALT.RELATIONSHIPS.LABEL'}}</h1>
                 <div>
                     <select name="system.characterType" class="item-select">
-                        {{#select system.characterType}}
-                            <option value="npc">{{localize 'MYZ-ALT.RELATIONSHIPS.NPC.LABEL'}}</option>
-                            <option value="pc">{{localize 'MYZ-ALT.RELATIONSHIPS.PC.LABEL'}}</option>
-                        {{/select}}
+
+                            <option value="npc" {{#if (eq system.characterType "npc")}}selected{{/if}}>{{localize 'MYZ-ALT.RELATIONSHIPS.NPC.LABEL'}}</option>
+                            <option value="pc" {{#if (eq system.characterType "pc")}}selected{{/if}}>{{localize 'MYZ-ALT.RELATIONSHIPS.PC.LABEL'}}</option>
+
                     </select>
                 </div>
             </div>
@@ -56,9 +56,11 @@
                 </div>
                 <div class="item-row item-edit">
                     <strong><label for="notes">{{localize 'MYZ-ALT.NOTES'}}:</label></strong>
-                    {{editor system.notes target="system.notes" button=true editable=editable engine="prosemirror" collaborate=false}}
+                    {{#if editable}}
+            <prose-mirror name="system.notes" data-document-uuid="{{item.uuid}}" value="{{system.notes}}" toggled="true">{{{notesHTML}}}</prose-mirror>
+            {{else}}<div class="rich-text">{{{notesHTML}}}</div>{{/if}}
                 </div>
             </div>
         </div>
     </div>
-</form>
+</section>

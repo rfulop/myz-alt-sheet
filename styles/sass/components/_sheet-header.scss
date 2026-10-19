@@ -2,22 +2,23 @@
   flex: 0;
 
   .header-col-img {
-    margin-bottom: $section-padding;
+    margin-bottom: 0;
+    align-self: flex-end;
   }
 
   .header-img {
-    flex: 0 0 148px;
-    height: 148px;
-    width: 148px;
+    flex: 0 0 $portrait-size;
+    height: $portrait-size;
+    width: $portrait-size;
   }
 
   .header-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
-    padding-right: $section-padding;
-    min-height: $section-row-height;
+    align-items: stretch;
+    padding-right: 0;
+    min-height: 0;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     flex-wrap: nowrap;
@@ -26,16 +27,35 @@
   }
 
   .header-main {
-    align-self: flex-end;
+    align-self: stretch;
+    gap: 4px;
+  }
+
+  .header-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 0.75fr);
+    min-height: 28px;
+  }
+
+  .header-details > .header-input,
+  .header-summary > div {
+    min-width: 0;
+  }
+
+  .header-summary {
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) repeat(2, 100px) minmax(112px, calc((100% - 0.6rem) * 0.75 / 3.25));
+    gap: 0.3rem;
   }
 
   .flex-grow-0 {
     flex-grow: 0;
   }
 
-  .header-button {
-    align-self: flex-end;
-    margin-bottom: $columns-gap;
+  .header-roll-controls {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
 
     .dark-btn {
       border: 1px solid $black;
@@ -80,7 +100,7 @@
       @include checkboxes-common;
 
       .point-checkbox {
-        @include checkbox-common(1.3rem, url('#{$ico-path}radiation.svg'));
+        @include checkbox-common(1.1rem, url('#{$ico-path}radiation.svg'));
       }
     }
 
@@ -97,7 +117,9 @@
     letter-spacing: 2px;
     background-color: $section-main-color;
     border: 1px solid $black;
-    flex-grow: 0;
+    flex-grow: 1;
+    min-width: 0;
+    margin: 0;
 
     input {
       border: none;
@@ -109,7 +131,7 @@
   .header-label {
     display: flex;
     flex-grow: 0;
-    align-items: baseline;
+    align-items: center;
     gap: $section-padding;
     background-color: $section-light-color;
     border: 1px solid $black;
@@ -135,6 +157,107 @@
     &.dark-bg {
       background-color: $section-main-color;
 
+    }
+  }
+}
+
+.header-title input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.header-title {
+  font-weight: normal;
+  line-height: normal;
+  color: #191813;
+}
+
+.header-label input {
+  color: #000;
+}
+
+.section-sheet-header .header-main {
+  min-width: 0;
+}
+
+.section-sheet-header > .header-row {
+  display: grid;
+  grid-template-columns: $portrait-size minmax(0, 1fr);
+  align-items: stretch;
+  padding-right: 0;
+}
+
+.section-sheet-header .header-col-img {
+  position: relative;
+  align-self: stretch;
+}
+
+.section-sheet-header .header-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@container character-sheet (max-width: #{$header-compact-width}) {
+  .section-sheet-header {
+    > .header-row {
+      grid-template-columns: $portrait-compact-size repeat(2, minmax(0, 1fr)) auto;
+      row-gap: 6px;
+    }
+
+    .header-main,
+    .header-identity,
+    .header-details {
+      display: contents;
+    }
+
+    .header-col-img {
+      grid-column: 1;
+      grid-row: 1 / 4;
+      align-self: start;
+    }
+
+    .header-img {
+      position: static;
+      flex: none;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+
+    .header-title {
+      grid-column: 2 / -1;
+      grid-row: 1;
+    }
+
+    input[name="system.specificType"] {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    input[name="system.role"] {
+      grid-column: 3 / -1;
+      grid-row: 2;
+    }
+
+    input[name="system.rank"] {
+      grid-column: 2 / 4;
+      grid-row: 3;
+    }
+
+    .header-label {
+      grid-column: 4;
+      grid-row: 3;
+    }
+
+    .header-main > .header-summary {
+      grid-column: 1 / -1;
+      grid-row: 4;
+      grid-template-columns: minmax(190px, 1fr) repeat(2, 100px) minmax(112px, 0.6fr);
+      padding-right: 0;
     }
   }
 }

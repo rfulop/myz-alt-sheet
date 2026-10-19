@@ -38,3 +38,111 @@
   background-color: white;
   text-align: center;
 }
+
+@mixin section-row-common {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: $section-padding;
+  min-height: $section-row-height;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  flex-wrap: nowrap;
+  line-height: unset !important;
+  gap: $columns-gap;
+
+  &:not(:last-of-type) {
+    border-bottom: solid 1px $black;
+  }
+
+  .section-value {
+    @include section-input-style(1.3rem);
+  }
+
+  .section-tiny-value {
+    @include section-input-style(2rem);
+  }
+
+  .section-input-no-border {
+    border: none;
+  }
+
+  .section-row-label {
+    white-space: nowrap;
+    flex: 0;
+  }
+
+  .section-name {
+    font-weight: bold;
+
+    &:hover, &:focus {
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .section-center {
+    align-items: center;
+  }
+
+  .section-gap-items {
+    gap: 0.5rem;
+  }
+
+  .trauma-checkboxes {
+    @include checkboxes-common;
+
+    .trauma-checkbox {
+      @include checkbox-common(1.6rem, url('#{$ico-path}biohazard.svg'));
+    }
+  }
+
+  .state-checkbox {
+    @include checkbox-common(1.6rem, url('#{$ico-path}biohazard.svg'));
+  }
+
+  .buddy-checkbox {
+    @include checkbox-common(1.6rem, url('#{$ico-path}radiation.svg'));
+  }
+
+  .point-checkboxes {
+    @include checkboxes-common;
+
+    .point-checkbox {
+      @include checkbox-common(1.2rem, url('#{$ico-path}biohazard.svg'));
+    }
+  }
+
+  .editor {
+    min-height: $section-row-height;
+    display: flex;
+    align-items: center;
+
+    &.prosemirror {
+      min-height: $section-row-height * 4;
+      display: block;
+      align-items: unset;
+    }
+
+  }
+
+  .section-column {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+    flex-direction: row;
+    gap: 0.1rem;
+
+    .section-field {
+      min-width: $row-min-width;
+    }
+  }
+
+  .section-column-img {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+}
