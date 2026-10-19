@@ -5,16 +5,16 @@
             {{localize 'MYZ.ARMOR_RATING'}}
         </div>
         <div class="section-control flex-basis-15">
-            <a class="item-create" data-type="armor">+</a>
+            <a class="item-create" data-type="armor" data-action="createItem">+</a>
         </div>
     </div>
     <ol class="item-list">
         {{#each armor as |armor key|}}
-            <li class="section-row-img flexrow box-item physical editable-armor section-table-line" data-physical="1" data-item-id="{{armor._id}}">
+            <li class="section-row-img flexrow box-item physical editable-armor section-table-line draggable" data-physical="1" data-item-id="{{armor._id}}">
                 <div class="flexrow section-center section-gap-items flex-basis-50">
 
                     <img class="section-img" src="{{armor.img}}"  alt="{{armor.name}}"/>
-                    <div class="rollable armor-item-roll {{#if (isBroken armor)}}broken{{/if}}" data-item-id="{{armor._id}}">
+                    <div class="rollable armor-item-roll {{#if (isBroken armor)}}broken{{/if}}" data-item-id="{{armor._id}}" data-action="rollArmor">
                         {{armor.name}}
                     </div>
                 </div>
@@ -26,22 +26,20 @@
                 <div class="section-control section-center flex-basis-15">
                     {{#unless armor.system.stashed}}
                         <a class="item-control item-toggle {{#unless armor.system.equipped}}item-unequipped{{/unless}}"
-                           title='{{localize "MYZ.EQUIP"}}'>
+                           title='{{localize "MYZ.EQUIP"}}' data-action="toggleItem" data-linked-value="system.equipped">
                             <i class="fas fa-tshirt"></i>
                         </a>
                     {{/unless}}
-                    {{#if armor.system.stashed}}
-                        <a class="item-control item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                    <a class="item-control item-stash-toggle" title='{{#if armor.system.stashed}}{{localize "MYZ.UN_STASH_ITEM"}}{{else}}{{localize "MYZ.STASH"}}{{/if}}'  data-action="toggleItem" data-linked-value="system.stashed">
                             <i class="fa-regular fa-box"></i>
                         </a>
-                    {{/if}}
-                    <a class="item-control item-edit" title="{{localize 'MYZ.EDIT'}}">
+                    <a class="item-control item-edit" title="{{localize 'MYZ.EDIT'}}" data-action="viewItem">
                         <i class="fas fa-edit"></i>
                     </a>
                 </div>
             </li>
         {{/each}}
-        {{#each (range armor.length 2)}}
+        {{#each (myzAltRange armor.length 2)}}
             <li class="section-row flexrow light-bg"></li>
         {{/each}}
     </ol>

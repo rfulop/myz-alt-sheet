@@ -3,6 +3,8 @@
         <div class="section-title">{{localize 'MYZ-ALT.NOTES'}}</div>
     </div>
     <div class="section-notes light-bg">
-        {{editor system.notes target="system.notes" button=true editable=editable engine="prosemirror" collaborate=false}}
+        {{#if editable}}
+            <prose-mirror name="system.notes" data-document-uuid="{{actor.uuid}}" value="{{system.notes}}" toggled="true">{{{enriched.notes}}}</prose-mirror>
+            {{else}}<div class="rich-text">{{{enriched.notes}}}</div>{{/if}}
     </div>
 </div>

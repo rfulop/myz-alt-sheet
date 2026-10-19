@@ -43,12 +43,15 @@
     },
     "ROT_POINTS": "Rot points",
     "TRAUMA": {
-      "AGILITY": "Épuisement",
-      "EMPATHY": "Doute",
-      "STRENGTH": "Dégâts",
+      "AGILITY": "Fatigue",
+      "EMPATHY": "Doubt",
+      "STRENGTH": "Damage",
       "WITS": "Confusion"
     },
-    "XP_POINTS": "Experience points"
+    "XP_POINTS": "Experience points",
+    "SHEET_LABEL": "Mutant Year Zero — Alternative Sheet",
+    "NO_ROLL": "Roll for this character before pushing.",
+    "TRAUMA_LABEL": "Trauma",
+    "POINT": "Point"
   }
 }
-

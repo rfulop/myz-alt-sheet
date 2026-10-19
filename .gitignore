@@ -6,3 +6,10 @@ npm-debug.log
 packs/
 
 *lock.json
+
+# Local release artifacts
+dist/
+__pycache__/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

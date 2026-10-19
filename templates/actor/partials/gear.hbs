@@ -2,16 +2,16 @@
     <div class="section-header">
         <div class="section-title">{{localize "MYZ.GEAR"}}</div>
         <div class="section-control flex0">
-            <a class="item-create" data-type="gear">+</a>
+            <a class="item-create" data-type="gear" data-action="createItem">+</a>
         </div>
     </div>
     <ol class="item-list">
         {{#each noStashedGear as |gear key|}}
-            <li class="editable-item section-row-img flexrow light-bg box-item" data-physical="1" data-item-id="{{gear._id}}">
+            <li class="editable-item section-row-img flexrow light-bg box-item draggable" data-physical="1" data-item-id="{{gear._id}}">
                 <img class="section-img" src="{{gear.img}}"  alt="{{gear.name}}"/>
                 <input type="number" class="owned-item-value section-value" value="{{gear.system.quantity}}"
                        data-item-id="{{gear._id}}" data-linked-value="system.quantity">
-                <div class="viewable section-name" data-item-id="{{gear._id}}">
+                <div class="viewable section-name" data-item-id="{{gear._id}}" data-action="viewItem">
                     {{gear.name}}
                 </div>
                 <div class="section-control flex0">
@@ -22,19 +22,17 @@
                             0
                         {{/if}}
                         <i class="fas fa-weight-hanging"></i>
-                        {{#if gear.system.stashed}}
-                            <a class="item-stash-toggle" title='{{localize "MYZ.UN_STASH_ITEM"}}'>
+                        <a class="item-stash-toggle" title='{{#if gear.system.stashed}}{{localize "MYZ.UN_STASH_ITEM"}}{{else}}{{localize "MYZ.STASH"}}{{/if}}'  data-action="toggleItem" data-linked-value="system.stashed">
                             <i class="fa-regular fa-box"></i>
                         </a>
-                        {{/if}}
-                        <a class="chatable" data-item-id="{{gear._id}}" title="{{localize 'MYZ.TOCHAT'}}">
+                        <a class="chatable" data-item-id="{{gear._id}}" title="{{localize 'MYZ.TOCHAT'}}" data-action="sendToChat">
                         <i class="fas fa-comment"></i>
                     </a>
                     </span>
                 </div>
             </li>
         {{/each}}
-        {{#each (range noStashedGear.length 5)}}
+        {{#each (myzAltRange noStashedGear.length 5)}}
             <li class="section-row flexrow light-bg"></li>
         {{/each}}
     </ol>

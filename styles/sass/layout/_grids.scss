@@ -31,9 +31,6 @@
       gap: $columns-gap;
       margin-top: 0.3rem;
 
-      .sub-column2 {
-        margin-top: 0.2rem;
-      }
     }
   }
 
@@ -67,5 +64,47 @@
 
   .full-width {
     grid-column: 1 / -1;
+  }
+}
+
+// Respond to the sheet width, independently of the browser viewport.
+.container-attributes {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.container-gear {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.container-attributes > *, .container-gear > *, .container-info > * {
+  min-width: 0;
+}
+
+.container-attributes .section-expended > * {
+  min-width: 0;
+}
+
+@container character-sheet (max-width: #{$sheet-stacked-width}) {
+  .container-attributes, .container-gear {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .container-attributes > .section-expended,
+  .container-attributes > .section-compact,
+  .container-gear > .section-expended,
+  .container-gear > .section-compact {
+    grid-column: 1;
+  }
+}
+
+@container character-sheet (max-width: #{$sheet-stacked-width}) {
+  .container-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container character-sheet (max-width: #{$sheet-compact-width}) {
+  .container-attributes .section-expended .rots {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
